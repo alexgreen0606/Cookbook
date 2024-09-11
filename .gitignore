@@ -1,63 +1,40 @@
-# Ignore all node_modules directories
-**/node_modules/
+# Compiled output
+**/dist
+**/tmp
+**/out-tsc
+**/bazel-out
 
-# Ignore build artifacts
-**/dist/
-**/build/
+# Node
+**/node_modules
+**/npm-debug.log
+**/yarn-error.log
 
-# Ignore .bin directories
-**/.bin/
+# IDEs and editors
+**/.idea/
+**/.project
+**/.classpath
+**/.c9/
+**/*.launch
+**/.settings/
+**/*.sublime-workspace
 
-# Ignore logs
-*.log
+# Visual Studio Code
+**/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+**/.history/*
 
-# VS Code settings
-**/.vscode/
+# Miscellaneous
+**/.angular/cache
+**/.sass-cache/
+**/connect.lock
+**/coverage
+**/libpeerconnection.log
+**/testem.log
+**/typings
 
-# macOS Finder metadata
-**/.DS_Store
-
-# Environment files
-**/.env
-**/.env.local
-**/.env.*.local
-
-# npm and yarn specific files
-**/package-lock.json
-**/yarn.lock
-
-# IDE and editor settings
-.idea/
-*.swp
-*.swo
-
-# Operating system files
+# System files
 **/.DS_Store
 **/Thumbs.db
-
-# Spring Boot build artifacts
-**/target/
-**/*.jar
-**/*.war
-**/*.ear
-**/*.class
-
-# Maven and Gradle specific files
-**/.mvn/
-**/.gradle/
-*.iml
-
-# Database files
-db/data/
-
-# Miscellaneous temporary files
-*.tmp
-*.bak
-*.swp
-
-# Additional configuration files
-*.sublime-project
-*.sublime-workspace
-*.project
-*.classpath
-*.settings/.DS_Store
