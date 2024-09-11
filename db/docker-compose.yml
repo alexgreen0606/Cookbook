@@ -1,0 +1,44 @@
+version: '3'
+services:
+  access:
+    build:
+      context: ../alex-green-pantry-be/Access
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      database:
+        condition: service_healthy
+
+  pantry:
+    build:
+      context: ../alex-green-pantry-be/Pantry
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      database:
+        condition: service_healthy
+
+  database:
+    image: 'postgres:latest'
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DATABASE: "postgres"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U admin -d postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build:
+      context: ../alex-green-pantry-fe
+      dockerfile: Dockerfile
+    ports: 
+      - "4200:4200"
