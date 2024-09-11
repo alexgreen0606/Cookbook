@@ -60,4 +60,4 @@ db/data/
 *.sublime-workspace
 *.project
 *.classpath
-*.settings/
+*.settings/.DS_Store
