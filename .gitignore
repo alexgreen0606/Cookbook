@@ -1,0 +1,63 @@
+# Ignore all node_modules directories
+**/node_modules/
+
+# Ignore build artifacts
+**/dist/
+**/build/
+
+# Ignore .bin directories
+**/.bin/
+
+# Ignore logs
+*.log
+
+# VS Code settings
+**/.vscode/
+
+# macOS Finder metadata
+**/.DS_Store
+
+# Environment files
+**/.env
+**/.env.local
+**/.env.*.local
+
+# npm and yarn specific files
+**/package-lock.json
+**/yarn.lock
+
+# IDE and editor settings
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+**/.DS_Store
+**/Thumbs.db
+
+# Spring Boot build artifacts
+**/target/
+**/*.jar
+**/*.war
+**/*.ear
+**/*.class
+
+# Maven and Gradle specific files
+**/.mvn/
+**/.gradle/
+*.iml
+
+# Database files
+db/data/
+
+# Miscellaneous temporary files
+*.tmp
+*.bak
+*.swp
+
+# Additional configuration files
+*.sublime-project
+*.sublime-workspace
+*.project
+*.classpath
+*.settings/
