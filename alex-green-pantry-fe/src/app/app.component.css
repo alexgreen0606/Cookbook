@@ -1,0 +1,7 @@
+mat-drawer-container {
+    position: static;
+}
+
+mat-drawer {
+    width: 400px;
+}

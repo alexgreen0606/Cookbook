@@ -1,0 +1,24 @@
+<mat-card class="entranceCard">
+    <mat-toolbar class="toolbar">
+        <p class="title">Register</p>
+    </mat-toolbar>
+    <mat-card-content>
+        <div class="content">
+            <mat-form-field>
+                <mat-label>Full Name</mat-label>
+                <input matInput type="text" [(ngModel)]="name" name="name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput type="text" [(ngModel)]="username" name="username">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="text" [(ngModel)]="password" name="password">
+            </mat-form-field>
+            <button (click)="register()" class="button">Register</button>
+            <button (click)="dataService.loggingIn = true; dataService.registering = false" class="button2">Have
+                Account?</button>
+        </div>
+    </mat-card-content>
+</mat-card>

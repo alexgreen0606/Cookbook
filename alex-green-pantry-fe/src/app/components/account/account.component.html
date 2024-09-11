@@ -1,0 +1,32 @@
+<mat-card class="display-card" style="top: 30px">
+    <mat-toolbar class="toolbar">
+        <span class="spacer"></span>
+        <p class="title2">Your Profile</p>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="openEditAccount()" class="title"
+            matTooltip="Edit Account"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button (click)="deleteAccount()" class="title"
+            matTooltip="Delete Account"><mat-icon>delete</mat-icon></button>
+    </mat-toolbar>
+    <mat-card-content class="display">
+        <h2 class="name">{{dataService.getUser().name}}</h2>
+        <p>Username: {{dataService.getUser().username}}</p>
+        <p>Password: {{dataService.getUser().password}}</p>
+
+        <!--DISPLAY ALL USER RECIPES-->
+        <div *ngIf="dataService.getRecipes().length > 0" class="recipe-list">
+            <h2>Your Recipes</h2>
+            <br>
+            <ul class="recipe">
+                <li *ngFor="let recipe of this.dataService.getRecipesObservable() | async">
+                    <button mat-button (click)="openRecipe(recipe)" class="recipe-button">
+                        <p class="title3">{{recipe.name}}</p>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <button mat-icon-button (click)="logout()" class="title"
+            matTooltip="Logout"><mat-icon>logout</mat-icon></button>
+    </mat-card-content>
+</mat-card>

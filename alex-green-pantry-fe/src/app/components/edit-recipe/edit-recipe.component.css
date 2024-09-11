@@ -1,0 +1,64 @@
+.step-button {
+    background-color: #2c65c7;
+    color:#fcc762;
+    border: none;
+    border-radius: 3px;
+    font-size: 17px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.step-button:hover {
+    background-color: #fcc762;
+    color:#2c65c7;
+}
+
+.step-list {
+    width: 500px;
+    max-width: 100%;
+    border: solid 1px #cc9966;
+    min-height: 60px;
+    display: block;
+    background: #221005;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .step-box {
+    padding-left: 10px;
+    border-bottom: solid 1px #cc9966;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: #221005;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .step-box:last-child {
+    border: none;
+  }
+  
+  .step-list.cdk-drop-list-dragging .step-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }

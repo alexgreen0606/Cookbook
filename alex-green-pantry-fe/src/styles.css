@@ -1,0 +1,200 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+    background-image: url('src/assets/background.jpg');
+    background-size: cover;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+    font-family: Trebuchet MS (sans-serif);
+    color: #cc9966;
+}
+
+mat-label {
+    color: #331a00;
+}
+
+mat-card-content {
+    background-image: linear-gradient( black, #221005);
+}
+
+mat-drawer {
+    background-image: linear-gradient( black, #221005);
+}
+
+p {
+    color: white;
+}
+
+.logo {
+    font-family: copperplate;
+    font-size: 60px;
+    background-image: linear-gradient(#331a00, #cc9966, #663300, #cc9966);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+    position: relative;
+    top: 5px;
+}
+
+.title {
+    font-family: copperplate;
+    font-size: 60px;
+    background-image: linear-gradient(#331a00, #cc9966, #663300, #cc9966);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+}
+
+.title2 {
+    font-family: copperplate;
+    font-size: 30px;
+    color: #cc9966;
+    position: relative;
+    top: 5px;
+}
+
+.title3 {
+    font-family: copperplate;
+    font-size: 20px;
+    color: #cc9966;
+}
+
+.butt {
+    font-family: copperplate;
+    font-size: 60px;
+    background-image: linear-gradient(#331a00, #cc9966);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+    position: relative;
+    top: -25px;
+}
+
+.toolbar {
+    background-image:linear-gradient(black, #221005);
+}
+
+.entranceCard {
+    margin: auto;
+    width: 600px;
+    top: 200px;
+    position: relative;
+}
+
+.content {
+    display: flex;
+    flex-flow: column;
+    background-image:linear-gradient(black, #221005);
+    color: white;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.create-button {
+    background-color: #331a00;
+    width: 150px;
+    min-height: 100px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    top: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-family: copperplate;
+    font-size: 30px;
+    color: #cc9966;
+    padding-top: 50px;
+}
+
+.create-button:hover {
+    background-color: #cc9966;
+    color: #331a00;
+}
+
+.button {
+    color: #cc9966;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    border: none;
+    font-size: 20px;
+    width: 150px;
+    margin: auto;
+}
+
+.button:hover {
+    color: #221005;
+    background-color: #cc9966;
+}
+
+.button2 {
+    background-color: white;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.button2:hover {
+    background-color: #cc9966;
+}
+
+.recipe-button {
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: none;
+}
+
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 100px;
+}
+
+.pantry {
+    position: relative;
+    top: 30px;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+
+img {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
+
+.img-display{
+    object-fit: cover;
+    width: 250px;
+    height: 250px;
+    border-radius: none;
+}
+
+.column {
+    display: flex;
+    flex-flow: column;
+}
+  
+.button3{
+    background-color: #cc9966;
+    border: none;
+    color:#221005;
+    border-radius: 10px;
+}
+
+.button3:hover{
+    background-color: #221005;
+    color:#cc9966;
+}

@@ -1,0 +1,29 @@
+<mat-toolbar class="toolbar">
+    <button mat-icon-button *ngIf="!linked" (click)="deleteItem();" class="title"
+        matTooltip="Delete Item"><mat-icon>delete</mat-icon></button>
+    <span class="spacer"></span>
+    <p class="title2">{{item.name}}</p>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="openEditItem();" class="title"
+        matTooltip="Edit Item"><mat-icon>edit</mat-icon></button>
+</mat-toolbar>
+<div mat-dialog-content class="content">
+    <div style="display: flex;">
+        <img src={{item.imageURL}} alt={{item.name}} class="img-display" style="margin: auto;">
+    </div>
+
+    <br>
+    <p>Calories per Ounce: {{item.calPerOunce}}</p>
+    <br>
+
+    <div *ngIf="recipes.length > 0" class="recipe-list">
+        <h2>Recipes</h2>
+        <br>
+        <ul class="recipe">
+            <li *ngFor="let recipe of recipes">
+                <p class="title3 white">{{recipe.name}}</p>
+            </li>
+        </ul>
+    </div>
+    <br>
+</div>

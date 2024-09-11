@@ -1,0 +1,23 @@
+<mat-toolbar class="toolbar">
+    <p class="title2">Edit Item</p>
+</mat-toolbar>
+<div mat-dialog-content class="content">
+    <div class="column">
+        <mat-form-field>
+            <mat-label>Item Name</mat-label>
+            <input matInput name="name" type="text" [(ngModel)]="item.name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Image URL</mat-label>
+            <input matInput name="image" type="text" [(ngModel)]="item.imageURL">
+        </mat-form-field>
+        <img *ngIf="item.imageURL != '' && item.imageURL.length <= 255" src={{item.imageURL}} alt={{item.name}} style="margin: auto; margin-bottom: 20px;">
+
+        <mat-form-field>
+            <mat-label>Calories Per Ounce</mat-label>
+            <input matInput name="weight" type="number" min="0" [(ngModel)]="item.calPerOunce">
+        </mat-form-field>
+        <button mat-button [mat-dialog-close]="item" class="button">Save</button>
+        <button mat-button (click)="dialogRef.close()" class="button2">Cancel</button>
+    </div>
+</div>

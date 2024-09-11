@@ -1,0 +1,21 @@
+<mat-toolbar class="toolbar">
+    <p class="title2">Modify Your Account</p>
+</mat-toolbar>
+<div mat-dialog-content class="content">
+    <div class="column">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput name="name" type="text" [(ngModel)]="account.name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput name="username" type="text" [(ngModel)]="account.username">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput name="password" type="text" [(ngModel)]="account.password">
+        </mat-form-field>
+        <button mat-button [mat-dialog-close]="account" class="button">Save</button>
+        <button mat-button (click)="dialogRef.close()" class="button2">Cancel</button>
+    </div>
+</div>

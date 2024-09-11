@@ -1,0 +1,28 @@
+<mat-toolbar class="toolbar">
+    <button mat-icon-button (click)="deleteRecipe();" class="title"
+        matTooltip="Delete Recipe"><mat-icon>delete</mat-icon></button>
+    <span class="spacer"></span>
+    <p class="title2">{{recipe.name}}</p>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="openEditRecipe()" class="title"
+        matTooltip="Edit Recipe"><mat-icon>edit</mat-icon></button>
+</mat-toolbar>
+<div mat-dialog-content class="content">
+    <div style="display: flex;">
+        <img src={{recipe.imageURL}} alt={{recipe.name}} class="img-display" style="margin: auto;">
+    </div>
+
+    <p>Total Calories: {{calculateCalories()}}</p>
+
+    <p>Ingredients</p>
+    <div style="padding-left: 20px">
+        <p *ngFor="let item of recipe.items" (click)="openItem(item)" class="item">{{item.name}} | {{this.recipe.itemWeights[this.recipe.items.indexOf(item)]}}oz</p>
+    </div>
+
+    <p>Instructions</p>
+    <div style="padding-left: 20px">
+        <p *ngFor="let step of recipe.steps">
+            {{recipe.steps.indexOf(step) + 1}}. {{step}}
+        </p>
+    </div>
+</div>

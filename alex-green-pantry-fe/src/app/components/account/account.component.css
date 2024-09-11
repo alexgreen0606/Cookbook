@@ -1,0 +1,34 @@
+.display-card {
+    margin: auto;
+    width: 600px;
+    top: 200px;
+    position: relative;
+}
+
+.display {
+    text-align: center;
+    padding-top: 60px;
+    font-family: garamond;
+}
+
+.name {
+    text-decoration: bold;
+    font-family: garamond;
+    font-size: 30px;
+}
+
+.recipe-list {
+    display: flex;
+    justify-content: left;
+}
+
+.recipe {
+    position: relative;
+    top: 30px;
+    left: -130px;
+    text-align: left;
+}
+
+.title:hover{
+    background-image: red;
+}

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PantryApplication<Pantry>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "net.yorksolutions.pantry.PantryApplication",
+            "projectName": "Pantry",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

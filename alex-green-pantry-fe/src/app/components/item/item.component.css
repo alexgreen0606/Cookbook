@@ -1,0 +1,15 @@
+.recipe-list {
+    display: flex;
+    justify-content: left;
+}
+
+.recipe {
+    position: relative;
+    top: 30px;
+    left: -80px;
+    text-align: left;
+}
+
+.white{
+    color: white;
+}

@@ -1,0 +1,203 @@
+<mat-toolbar class="toolbar">
+    <p class="title2">Edit Recipe</p>
+</mat-toolbar>
+<div mat-dialog-content class="content">
+    <mat-stepper [linear]="true" #stepper class="content">
+        <mat-step>
+
+            <ng-template matStepLabel>Name</ng-template>
+
+            <div style="display: flex; justify-content: center">
+                <mat-form-field style="width: 400px; margin-top: 30px;">
+                    <mat-label>Name Your Recipe</mat-label>
+                    <input matInput name="name" type="text" [(ngModel)]="recipe.name"
+                        (keydown.enter)="goForward(stepper)">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-button matStepperNext class="step-button" *ngIf="recipe.name != ''">Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Image</ng-template>
+
+            <div class="column">
+                <mat-form-field style="width: 400px; margin: auto; margin-top: 30px;">
+                    <mat-label>Image URL</mat-label>
+                    <input matInput name="image" type="text" [(ngModel)]="recipe.imageURL"
+                        (keydown.enter)="goForward(stepper)">
+                </mat-form-field>
+                <img *ngIf="recipe.imageURL != '' && recipe.imageURL.length <= 255" src={{recipe.imageURL}}
+                    alt={{recipe.name}} class="img-display" style="margin: auto; margin-bottom: 20px;">
+                <p *ngIf="recipe.imageURL.length > 255" style="color: red">This url is too long. Try another.</p>
+
+            </div>
+
+            <div>
+                <button mat-button matStepperPrevious class="step-button">Back</button>
+                <button mat-button matStepperNext class="step-button" *ngIf="recipe.imageURL != ''">Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Ingredients</ng-template>
+
+            <div style="display: flex; flex-flow: column; justify-content: center;">
+
+                <div *ngIf="(selectedItem === null && createdItem === null) || selectedItem" style="margin: auto">
+
+                    <div style="margin: auto">
+                        <form>
+                            <mat-form-field appearance="fill" style="width: 280px; margin: auto">
+                                <mat-label>
+                                    <mat-icon>search</mat-icon>
+                                    Search For Items In The Pantry
+                                </mat-label>
+                                <input type="text" matInput [formControl]="itemSearch" [matAutocomplete]="autoItem" [(ngModel)]="itemFilter">
+                                <mat-autocomplete #autoItem="matAutocomplete">
+                                    <mat-option *ngFor="let item of filteredItems | async" [value]="item.name"
+                                        (click)="selectItem(item)">
+                                        {{item.name}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </form>
+                    </div>
+
+                    <div *ngIf="selectedItem != null" style="margin: auto">
+
+                        <mat-form-field style="width: 280px;">
+                            <mat-label>{{selectedItem.name}} Weight(oz)</mat-label>
+                            <input matInput name="weight" type="number" min=".01" [(ngModel)]="selectedWeight">
+                        </mat-form-field>
+
+
+                        <div *ngIf="selectedWeight != null" style="position: relative; top: -20px;">
+                            <button (click)="addItem()" class="button3">Add Item</button>
+                        </div>
+
+                        <div *ngIf="selectedWeight != null" style="position: relative; top: -20px;">
+                            <button (click)="resetVals()" class="button3">Cancel</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div *ngIf="selectedItem === null && createdItem === null" style="margin: auto">
+                    <p>--------------------------- OR ---------------------------</p>
+                </div>
+
+                <br>
+
+                <div *ngIf="(selectedItem === null && createdItem === null) || createdItem" style="margin: auto">
+
+                    <button *ngIf="createdItem === null" (click)="openCreateItem()" class="button">Add New Item to
+                        Pantry</button>
+
+                    <div *ngIf="createdItem != null" style="margin: auto">
+
+                        <mat-form-field style="width: 280px; margin-top: 20px;">
+                            <mat-label>{{createdItem.name}} Weight(oz)</mat-label>
+                            <input matInput name="weight" type="number" min=".01" [(ngModel)]="createdWeight">
+                        </mat-form-field>
+
+                        <div *ngIf="createdWeight != null && createdItem != null && edittingItem === null"
+                            style="position: relative; top: -20px;">
+                            <button (click)="createItem()" class="button3">Add Item</button>
+                        </div>
+
+                        <div *ngIf="createdWeight != null && edittingItem != null"
+                            style="position: relative; top: -20px;">
+                            <button (click)="updateItem()" class="button3">Update Item</button>
+                        </div>
+
+                        <div *ngIf="edittingItem === null" style="position: relative; top: -20px;">
+                            <button (click)="resetVals()" class="button3">Cancel</button>
+                        </div>
+
+                        <div *ngIf="edittingItem != null" style="position: relative; top: -20px;">
+                            <button (click)="resetVals()" class="button3">Cancel</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <br>
+                <br>
+                <p style="display: flex;" *ngFor="let item of recipe.items">
+                    <span>{{item.name}} | {{recipe.itemWeights[this.recipe.items.indexOf(item)]}}oz</span>
+                    <span class="spacer"></span>
+                    <button *ngIf="!item.id" (click)="openEditItem(item)" class="butt" matTooltip="Edit Item">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button (click)="removeItem(item)" class="butt" matTooltip="Remove Item">
+                        <mat-icon>close</mat-icon>
+                    </button>
+
+            </div>
+            <div>
+                <button mat-button matStepperPrevious class="step-button">Back</button>
+                <button mat-button matStepperNext class="step-button" *ngIf="recipe.items.length > 0">Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Instructions</ng-template>
+
+            <p style="margin-top: 30px;">Write instructions for this recipe...</p>
+
+            <mat-form-field style="width: 500px">
+                <mat-label>New Instruction</mat-label>
+                <input matInput name="steps" type="text" [(ngModel)]="newStep" (keydown.enter)="addStep()">
+            </mat-form-field>
+            <div style="position: relative; top: -20px;">
+                <button (click)="addStep()" class="button3">Add</button>
+            </div>
+
+            <div *ngIf="recipe.steps.length > 0" cdkDropList class="step-list" (cdkDropListDropped)="drop($event)">
+                <div class="step-box" *ngFor="let step of this.recipe.steps" cdkDrag>
+                    {{recipe.steps.indexOf(step) + 1}}. {{step}}
+                    <span class="spacer"></span>
+                    <button (click)="removeStep(step)" class="butt" style="position: relative; top: 0px"
+                        matTooltip="Remove Step"><mat-icon>delete</mat-icon></button>
+                </div>
+            </div>
+
+            <div>
+                <button mat-button matStepperPrevious class="step-button">Back</button>
+                <button mat-button matStepperNext class="step-button" *ngIf="recipe.steps.length > 0">Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Review</ng-template>
+
+            <div style="text-align: center; padding-bottom: 20px">
+                <p class="title2" style="margin-top: 30px; font-size: 40px">{{recipe.name}}</p>
+            </div>
+            <div style="display: flex;">
+                <img src={{recipe.imageURL}} alt={{recipe.name}} class="img-display" style="margin: auto;">
+            </div>
+            <p>Total Calories: {{calculateCalories()}}</p>
+            <p>Ingredients</p>
+            <div style="padding-left: 20px">
+                <p *ngFor="let item of recipe.items" class="item">{{item.name}} |
+                    {{this.recipe.itemWeights[this.recipe.items.indexOf(item)]}}oz</p>
+            </div>
+
+            <p>Instructions</p>
+            <div style="padding-left: 20px">
+                <p *ngFor="let step of recipe.steps">
+                    {{recipe.steps.indexOf(step) + 1}}. {{step}}
+                </p>
+            </div>
+
+            <br>
+
+            <div>
+                <button mat-button matStepperPrevious class="step-button">Back</button>
+                <button mat-button [mat-dialog-close]="recipe" class="step-button">Save</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

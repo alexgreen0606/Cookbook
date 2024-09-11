@@ -1,0 +1,84 @@
+<!--TOP-SCREEN NAVIGATION BAR-->
+<mat-toolbar *ngIf="dataService.loggedIn" class="toolbar">
+  <button mat-icon-button (click)="drawer.toggle()" class="title"><mat-icon>menu</mat-icon></button>
+  <span class="spacer"></span>
+  <p (click)="dataService.showItems()" class="logo" matTooltip="View Recipes">Cookbook</p>
+  <span class="spacer"></span>
+  <button mat-icon-button (click)="dataService.showAccount(); resetFilters()" matTooltip="View Account"
+    class="title"><mat-icon>account_box</mat-icon></button>
+</mat-toolbar>
+
+<!--ITEM SIDEBAR-->
+<mat-drawer-container hasBackdrop="true" autosize>
+  <mat-drawer #drawer mode="side">
+    <mat-toolbar class="toolbar">
+      <span class="title2">Pantry</span>
+      <span class="spacer"></span>
+      <!--NEW ITEM BUTTON-->
+      <button mat-icon-button (click)="openCreateItem()" class="title"
+        matTooltip="Add New Item"><mat-icon>add</mat-icon></button>
+    </mat-toolbar>
+
+    <!--ITEM SEARCHBAR-->
+    <div style="display: flex; padding-top: 20px; padding-left: 35px;">
+      <form>
+        <mat-form-field appearance="fill">
+          <mat-label><mat-icon>search</mat-icon>Search for items</mat-label>
+          <input type="text" matInput [formControl]="itemSearch" [matAutocomplete]="autoItem" [(ngModel)]="itemFilter">
+          <mat-autocomplete #autoItem="matAutocomplete">
+            <mat-option *ngFor="let item of filteredItems | async" [value]="item.name" (click)="openItem(item)">
+              {{item.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <!--ITEM LIST-->
+    <ul>
+      <li *ngFor="let item of this.dataService.getItemsObservable() | async">
+        <button mat-button (click)="openItem(item)" class="recipe-button">
+          <p class="title3">{{item.name}}</p>
+        </button>
+      </li>
+    </ul>
+
+  </mat-drawer>
+</mat-drawer-container>
+
+<!--LOGIN COMPONENT-->
+<app-login *ngIf="dataService.loggingIn"></app-login>
+
+<!--REGISTER COMPONENT-->
+<app-register *ngIf="dataService.registering"></app-register>
+
+<!--RECIPE DISPLAY-->
+<div *ngIf="dataService.viewingItems">
+
+  <!--RECIPE SEARCHBAR-->
+  <div style="display: flex; padding-top: 20px; padding-left: 35px;">
+    <form>
+      <mat-form-field appearance="fill">
+        <mat-label><mat-icon>search</mat-icon>Search for recipes</mat-label>
+        <input type="text" matInput [formControl]="recipeSearch" [matAutocomplete]="auto" [(ngModel)]="recipeFilter">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let recipe of filteredRecipes | async" [value]="recipe.name" (click)="openRecipe(recipe)">
+            {{recipe.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
+  </div>
+
+  <!--RECIPE DISPLAY GRID-->
+  <div class="items">
+    <!--NEW RECIPE BUTTON-->
+    <div (click)="openCreateRecipe()" class="create-button">ADD<br>NEW<br>RECIPE</div>
+    <div *ngFor="let recipe of dataService.getRecipesObservable() | async">
+      <img src={{recipe.imageURL}} alt={{recipe.name}} (click)="openRecipe(recipe)" class="pantry"
+        matTooltip={{recipe.name}}>
+    </div>
+  </div>
+</div>
+
+<app-account *ngIf="dataService.viewingAccount"></app-account>
