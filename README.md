@@ -2,12 +2,14 @@
 
 ## Project Overview
 
-This app is a Pantry Inventory tracker that allows users to create and edit accounts, add items to the pantry, and 
+This app is a recipe tracker that allows users to create and edit accounts, add items to the pantry, and 
 create recipes using the items in the pantry.
 
 ## Features
 
-- **Login System**: TODO
+- **Login System**: Create accounts to keep track of your personal recipes.
+- **Pantry**: A pantry is used to keep track of ingredients and their calorie counts.
+- **Recipes**: The cookbook allows for creation of recipes by linking pantry items and instructions.
 
 ## Technology Stack
 
@@ -24,13 +26,10 @@ create recipes using the items in the pantry.
 
 ## How to Use
 
-### Admins
-
-- **Create Account**: TODO
-
-### Users
-
-- **Create Account**: TODO
+- **Create Account**: Enter your name, a username, and a password on the login page to create an account.
+- **Build Your Pantry**: In the sidebar, add some ingredients to your collection. Ingredients require a name, image url, and calorie count.
+- **Build Your Cookbook**: On the homepage, browse your recipes or create new ones with the create button. Recipes consist of names, images, ingredients, and instructions.
+- **Edit Your Account**: The profile page allows for editing of all recipes, ingredients, username, password, name, and deletion of your account.
 
 ## Development Intent
 
