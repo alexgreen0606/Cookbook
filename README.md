@@ -1,24 +1,61 @@
-# App's Conception
-This app was developed individually by me as my capstone project for York Solution's Barriers to Entry program.
-I had two weeks to design and build both the front and back end. 
+# The Cookbook :stew:
 
-# App's Intent
+## Project Overview
+
 This app is a Pantry Inventory tracker that allows users to create and edit accounts, add items to the pantry, and 
 create recipes using the items in the pantry.
 
-# App Tech-Stack
-The app is built using an Angular front-end and a Java Spring Boot backend that is built off of the Java persistence api. 
+## Features
 
-I've added separate READMEs in each of the folders if you'd like to run the app locally.
+- **Login System**: TODO
 
-# Run App
-1. Ensure docker is installed on your device and the engine is running.
-1. Navigate to /db folder.
-2. Delete /data folder if it exists.
-3. In terminal:
-    > docker-compose down
-4. In terminal:
-    > docker-compose up
-5. Once complete, go to localhost:4200 to see the app!
+## Technology Stack
 
-# TODO: ORGANIZE AS APPS INTENT, APP'S CONCEPTION, AND TECH STACK
+### Frontend
+
+- **Angular**: The user interface is built using Angular
+- **CSS**: Provides styling and animations for a polished look and feel.
+- **HTML5**: Lays the foundation for the frontend structure.
+
+### Backend
+
+- **Java Spring Boot**: The main framework that handles the server-side logic, routing, and API endpoints.
+- **JPA Repository**: Used for interacting with the database, providing an abstraction layer to manage persistent data.
+
+## How to Use
+
+### Admins
+
+- **Create Account**: TODO
+
+### Users
+
+- **Create Account**: TODO
+
+## Development Intent
+
+This app was developed individually by me as my capstone project for York Solution's Barriers to Entry program (B2E).
+I had two weeks to design and build both the frontend and backend
+
+## Prerequisites
+
+- **Docker**: The app is containerized, so Docker is required for running the application locally.
+
+## Installation and Running the Game
+
+1. Clone the repository:
+```bash
+git clone https://github.com/alexgreen0606/Cookbook
+```
+
+2. From the root folder, navigate to the docker compose folder:
+```bash
+cd db
+```
+
+3. Run Docker Compose:
+```bash
+docker compose up
+```
+
+4. Open `localhost:4200` in your browser to start using the app!
