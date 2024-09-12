@@ -2,21 +2,20 @@
 
 ## Project Overview
 
-This app is a recipe tracker that allows users to create and edit accounts, add items to the pantry, and 
-create recipes using the items in the pantry.
+The Cookbook is a recipe tracker that enables users to create and manage accounts, maintain a pantry of ingredients, and build recipes using those pantry items. The application offers a user-friendly interface to store your favorite recipes, track ingredients, and manage calorie counts.
 
 ## Features
 
-- **Login System**: Create accounts to keep track of your personal recipes.
-- **Pantry**: A pantry is used to keep track of ingredients and their calorie counts.
-- **Recipes**: The cookbook allows for creation of recipes by linking pantry items and instructions.
+- **Login System**: Users can create and manage accounts to personalize their experience.
+- **Pantry**: Track ingredients in your pantry, along with their calorie counts.
+- **Recipe Management**: Create, browse, and edit recipes by linking pantry items to instructions and images.
 
 ## Technology Stack
 
 ### Frontend
 
-- **Angular**: The user interface is built using Angular
-- **CSS**: Provides styling and animations for a polished look and feel.
+- **Angular**: Handles the user interface, ensuring a dynamic and interactive experience.
+- **CSS**: Provides styling and animations for a polished and responsive look.
 - **HTML5**: Lays the foundation for the frontend structure.
 
 ### Backend
@@ -26,15 +25,14 @@ create recipes using the items in the pantry.
 
 ## How to Use
 
-- **Create Account**: Enter your name, a username, and a password on the login page to create an account.
-- **Build Your Pantry**: In the sidebar, add some ingredients to your collection. Ingredients require a name, image url, and calorie count.
-- **Build Your Cookbook**: On the homepage, browse your recipes or create new ones with the create button. Recipes consist of names, images, ingredients, and instructions.
-- **Edit Your Account**: The profile page allows for editing of all recipes, ingredients, username, password, name, and deletion of your account.
+- **Create an Account**: Sign up with your name, username, and password on the login page.
+- **Build Your Pantry**: Add ingredients via the sidebar. Each ingredient requires a name, image URL, and calorie count.
+- **Create and Manage Recipes**: On the homepage, browse or create new recipes. Recipes consist of names, images, linked ingredients from the pantry, and step-by-step instructions.
+- **Edit Your Account**: The profile page allows you to modify your recipes, ingredients, username, password, and name. You can also delete your account from here.
 
 ## Development Intent
 
-This app was developed individually by me as my capstone project for York Solution's Barriers to Entry program (B2E).
-I had two weeks to design and build both the frontend and backend
+This app was developed as my capstone project for York Solutions' `Barriers to Entry (B2E)` program, completed over two weeks. The goal was to design and implement both the frontend and backend independently, resulting in a fully functional application.
 
 ## Prerequisites
 
